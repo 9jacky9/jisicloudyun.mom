@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>网站地图 - 极速cloud</title>
+<style>
+:root {
+  --bg-main: #060b13;
+  --bg-surface: #0e1525;
+  --bg-elevated: #1a2333;
+  --accent-color: #0284c7;
+  --accent-hover: #0369a1;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border-color: #1e293b;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+body { background: var(--bg-main); color: var(--text-main); line-height: 1.7; }
+a { text-decoration: none; color: inherit; transition: all 0.2s; }
+a:hover { color: var(--accent-color); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; font-size: 1rem; font-weight: 600; transition: all 0.25s; border-radius: 0; cursor: pointer; letter-spacing: 0.5px; }
+.btn-primary { background: var(--accent-color); color: #fff; border: 1px solid var(--accent-color); }
+.btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: #fff; box-shadow: 0 0 15px rgba(2, 132, 199, 0.4); }
+.btn-outline { background: transparent; color: var(--text-main); border: 1px solid var(--border-color); }
+.btn-outline:hover { border-color: var(--accent-color); color: var(--accent-color); background: rgba(2, 132, 199, 0.05); }
+
+header { border-bottom: 1px solid var(--border-color); padding: 18px 0; background: rgba(6, 11, 19, 0.85); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+.header-inner { display: flex; justify-content: space-between; align-items: center; }
+.logo { display: flex; align-items: center; font-size: 1.4rem; font-weight: 700; color: #fff; letter-spacing: 1px; }
+.logo svg { width: 34px; height: 34px; margin-right: 12px; }
+
+section { padding: 90px 0; border-bottom: 1px solid var(--border-color); }
+.section-title { font-size: 2.2rem; font-weight: 700; text-align: center; margin-bottom: 60px; color: #fff; letter-spacing: 1px; }
+
+.hero { text-align: center; padding: 140px 0 120px; background: radial-gradient(circle at top, var(--bg-surface) 0%, var(--bg-main) 60%); border-bottom: 1px solid var(--border-color); }
+.hero h1 { font-size: 3.8rem; font-weight: 800; margin-bottom: 24px; line-height: 1.15; letter-spacing: -1px; }
+.hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 680px; margin: 0 auto 40px; }
+.hero-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+.grid { display: grid; gap: 30px; }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+
+.card { background: var(--bg-surface); border: 1px solid var(--border-color); padding: 45px 35px; transition: all 0.3s; }
+.card:hover { border-color: var(--accent-color); background: var(--bg-elevated); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.card-icon { width: 44px; height: 44px; fill: var(--accent-color); margin-bottom: 24px; }
+.card h3 { font-size: 1.4rem; margin-bottom: 16px; color: #fff; font-weight: 600; }
+.card p { color: var(--text-muted); font-size: 0.95rem; }
+
+.testimonial { background: var(--bg-surface); padding: 35px; border-left: 3px solid var(--accent-color); position: relative; }
+.testimonial p { font-size: 1.05rem; font-style: italic; margin-bottom: 25px; color: #cbd5e1; }
+.testimonial-author { font-weight: 600; color: var(--text-muted); font-size: 0.9rem; letter-spacing: 0.5px; text-transform: uppercase; }
+
+.pricing-card { display: flex; flex-direction: column; text-align: center; padding: 50px 35px; background: var(--bg-surface); border: 1px solid var(--border-color); }
+.pricing-card.featured { border-color: var(--accent-color); background: var(--bg-elevated); position: relative; transform: scale(1.02); }
+.pricing-card.featured::before { content: 'PRO'; position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); background: var(--accent-color); color: #fff; padding: 4px 16px; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; }
+.price { font-size: 2.8rem; font-weight: 800; margin: 20px 0; color: #fff; }
+.price span { font-size: 1rem; color: var(--text-muted); font-weight: normal; }
+.pricing-features { list-style: none; margin: 30px 0 40px; text-align: left; }
+.pricing-features li { padding: 12px 0; border-bottom: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.95rem; display: flex; align-items: center; }
+.pricing-features li::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-color); margin-right: 12px; }
+
+.faq-item { background: var(--bg-surface); padding: 30px; margin-bottom: 20px; border: 1px solid var(--border-color); transition: all 0.2s; }
+.faq-item:hover { border-color: var(--text-muted); }
+.faq-item h4 { font-size: 1.15rem; color: #fff; margin-bottom: 12px; font-weight: 600; }
+.faq-item p { color: var(--text-muted); font-size: 0.95rem; }
+
+footer { padding: 80px 0 40px; background: #03050a; text-align: center; font-size: 0.9rem; color: var(--text-muted); border-top: 1px solid var(--border-color); }
+.footer-links { display: flex; justify-content: center; gap: 35px; margin-bottom: 40px; flex-wrap: wrap; }
+.footer-links a { color: var(--text-muted); font-weight: 500; }
+.footer-links a:hover { color: #fff; }
+.footer-copy { padding-top: 20px; font-size: 0.85rem; opacity: 0.7; }
+
+.page-content { padding: 80px 20px; min-height: calc(100vh - 250px); max-width: 800px; margin: 0 auto; }
+.page-content h1 { font-size: 2.8rem; margin-bottom: 40px; color: #fff; font-weight: 800; border-bottom: 1px solid var(--border-color); padding-bottom: 20px; }
+.page-content h2 { font-size: 1.6rem; margin: 40px 0 20px; color: #f1f5f9; font-weight: 600; }
+.page-content p { margin-bottom: 20px; color: var(--text-muted); font-size: 1.05rem; }
+.page-content ul { margin-bottom: 25px; padding-left: 20px; color: var(--text-muted); }
+.page-content li { margin-bottom: 12px; }
+.page-content a { color: var(--accent-color); }
+.page-content a:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .hero { padding: 100px 0 80px; }
+  .hero h1 { font-size: 2.4rem; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .pricing-card.featured { transform: none; }
+  .hero-btns { flex-direction: column; }
+  .btn { width: 100%; }
+}
+
+/* Mobile Nav Fix */
+@media (max-width: 768px) {
+  header { padding: 12px 0; }
+  .header-inner { flex-wrap: wrap; gap: 10px; }
+  .nav-menu { 
+    display: flex !important; 
+    width: 100%; 
+    overflow-x: auto; 
+    white-space: nowrap; 
+    padding-bottom: 5px; 
+    order: 3; 
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .nav-menu::-webkit-scrollbar { display: none; }
+  .logo { order: 1; }
+  .header-inner > .btn, .header-inner > a.btn { order: 2; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10,65 L25,40 L45,25 L75,35 L90,65 Z" fill="#0284c7"/>
+        <path d="M25,40 L45,25 L55,50 Z" fill="#0369a1"/>
+        <path d="M45,25 L75,35 L55,50 Z" fill="#0c4a6e"/>
+        <path d="M10,65 L25,40 L55,50 Z" fill="#075985"/>
+        <path d="M75,35 L90,65 L55,50 Z" fill="#1e293b"/>
+        <path d="M10,65 L55,50 L90,65 Z" fill="#38bdf8"/>
+      </svg>
+      极速cloud
+    </a>
+    <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" rel="nofollow" target="_blank" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.9rem;">客户面板</a>
+  </div>
+</header>
+
+<div class="page-content">
+  <h1>网站地图</h1>
+  <ul>
+    <li><a href="index.html">首页 - 极速cloud</a></li>
+    <li><a href="news.html">行业视点 - 极速cloud</a></li>
+    <li><a href="ai-training-data-flow.html">AI大模型训练的数据跨境流转效率提升策略</a></li>
+    <li><a href="cloud-native-connectivity.html">拥抱云原生架构：分布式团队的网络连通性考量</a></li>
+    <li><a href="cross-border-data-compliance.html">中企出海网络合规与跨境数据传输白皮书解读</a></li>
+    <li><a href="ddos-protection-guide.html">抵御DDoS攻击：企业网络访问层的安全防护指南</a></li>
+    <li><a href="enterprise-global-connectivity.html">企业级出海专线：极速cloud如何构建全球互联底座</a></li>
+    <li><a href="enterprise-networking-choices.html">从BGP到专线：如何选择最适合你的企业组网方案</a></li>
+    <li><a href="about.html">关于我们</a></li>
+    <li><a href="terms.html">服务条款</a></li>
+    <li><a href="privacy.html">隐私政策</a></li>
+  </ul>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="sitemap.html">网站地图</a>
+      <a href="about.html">关于我们</a>
+      <a href="terms.html">服务条款</a>
+      <a href="privacy.html">隐私政策</a>
+    </div>
+    <div class="footer-copy">
+      &copy; 2026 极速cloud. 全球数据资产保障协议执行标准.
+    </div>
+  </div>
+</footer>
+</body>
+</html>
